@@ -1,0 +1,58 @@
+import React from 'react';
+import { motion } from 'framer-motion';
+
+const videos = [
+  {
+    title: 'Build a Portfolio Website from Scratch',
+    views: '82k Views',
+    likes: '3.4k Likes',
+    thumbnail: '/placeholder-portfolio.png',
+  },
+  {
+    title: 'How to Get Placed in Tech in 2025 (No Luck, Just Skills)',
+    views: '43k Views',
+    likes: '2.8k Likes',
+    thumbnail: '/placeholder-job2025.png',
+  },
+  {
+    title: 'Complete Web Developer Roadmap 2025',
+    views: '128k Views',
+    likes: '6.2k Likes',
+    thumbnail: '/placeholder-roadmap2025.png',
+  },
+];
+
+export default function YouTubeSection() {
+  return (
+    <section className="bg-black py-16">
+      <div className="text-center mb-12">
+        <span className="text-orange-400 uppercase tracking-widest text-sm">YouTube</span>
+        <h2 className="text-4xl md:text-5xl font-bold text-white mt-4">200+ Free Coding Tutorials On<br />Sheryians</h2>
+      </div>
+      <motion.div
+        className="flex flex-wrap justify-center gap-8"
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7 }}
+      >
+        {videos.map((video, idx) => (
+          <motion.div
+            key={idx}
+            className="bg-zinc-900 rounded-xl shadow-lg w-80 p-4 cursor-pointer hover:scale-105 transition-transform duration-300"
+            whileHover={{ scale: 1.05 }}
+          >
+            <div className="rounded-lg overflow-hidden mb-4 h-44 bg-zinc-800 flex items-center justify-center">
+              <img src={video.thumbnail} alt={video.title} className="object-cover w-full h-full" />
+            </div>
+            <div className="text-white text-lg font-semibold mb-2">{video.title}</div>
+            <div className="text-zinc-400 text-sm flex gap-4">
+              <span>{video.views}</span>
+              <span>•</span>
+              <span>{video.likes}</span>
+            </div>
+          </motion.div>
+        ))}
+      </motion.div>
+    </section>
+  );
+}
