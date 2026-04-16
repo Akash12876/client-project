@@ -45,7 +45,7 @@ export default function ContactFormModal({ onClose }: { onClose: () => void }) {
               width={840}
               height={280}
               priority
-              className="h-full w-full -translate-y-2 origin-center scale-[2.02] object-contain md:-translate-y-2 md:scale-[2.22]"
+              className="h-full w-full origin-center scale-[2.15] object-contain md:scale-[2.35]"
             />
           </Link>
           <h2 className="text-3xl sm:text-5xl md:text-6xl font-extrabold text-white leading-tight">

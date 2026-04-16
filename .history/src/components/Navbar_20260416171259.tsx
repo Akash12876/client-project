@@ -64,10 +64,6 @@ export default function Navbar() {
   const router = useRouter();
   const pathname = usePathname();
 
-  const handleBrandClick = () => {
-    window.location.assign("/");
-  };
-
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
     return () => {
@@ -121,16 +117,16 @@ export default function Navbar() {
     >
       {/* Logo */}
       <button
-        className="flex items-center h-12 w-[45vw] max-w-[340px] min-w-[170px] overflow-hidden focus:outline-none"
-        onClick={handleBrandClick}
+        className="flex items-center gap-2 focus:outline-none"
+        onClick={() => handleNav("#home")}
       >
         <Image
           src="/iparx.png"
           alt="IPARX MEDIA"
-          width={680}
-          height={220}
+          width={170}
+          height={48}
           priority
-          className="h-full w-full origin-left scale-[2.3] object-contain object-left md:scale-[2.45]"
+          className="h-8 w-auto md:h-9"
         />
       </button>
 

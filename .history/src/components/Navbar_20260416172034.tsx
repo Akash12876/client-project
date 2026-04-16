@@ -121,16 +121,16 @@ export default function Navbar() {
     >
       {/* Logo */}
       <button
-        className="flex items-center h-12 w-[45vw] max-w-[340px] min-w-[170px] overflow-hidden focus:outline-none"
+        className="flex items-center gap-2 focus:outline-none"
         onClick={handleBrandClick}
       >
         <Image
           src="/iparx.png"
           alt="IPARX MEDIA"
-          width={680}
-          height={220}
+          width={360}
+          height={102}
           priority
-          className="h-full w-full origin-left scale-[2.3] object-contain object-left md:scale-[2.45]"
+          className="h-14 w-auto md:h-16 lg:h-[4.5rem]"
         />
       </button>
 

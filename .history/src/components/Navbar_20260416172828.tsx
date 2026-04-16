@@ -121,7 +121,7 @@ export default function Navbar() {
     >
       {/* Logo */}
       <button
-        className="flex items-center h-12 w-[45vw] max-w-[340px] min-w-[170px] overflow-hidden focus:outline-none"
+        className="flex items-center h-12 w-[45vw] max-w-[340px] min-w-[170px] focus:outline-none"
         onClick={handleBrandClick}
       >
         <Image
@@ -130,7 +130,7 @@ export default function Navbar() {
           width={680}
           height={220}
           priority
-          className="h-full w-full origin-left scale-[2.3] object-contain object-left md:scale-[2.45]"
+          className="h-full w-full object-contain object-left"
         />
       </button>
 

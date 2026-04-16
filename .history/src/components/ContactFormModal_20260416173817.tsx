@@ -3,7 +3,6 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import dynamic from "next/dynamic";
 import Image from "next/image";
-import Link from "next/link";
 
 const ThankYouModal = dynamic(() => import("./ThankYouModal"), { ssr: false });
 
@@ -34,20 +33,16 @@ export default function ContactFormModal({ onClose }: { onClose: () => void }) {
         <button onClick={onClose} className="absolute top-3 right-4 text-3xl text-zinc-400 hover:text-white transition-colors font-bold z-10">×</button>
         {/* Left Side */}
         <div className="flex-1 flex flex-col justify-center items-start gap-4">
-          <Link
-            href="/"
-            className="mb-3 flex h-[110px] w-full items-center justify-center overflow-hidden sm:h-[130px] md:h-[150px]"
-            aria-label="Go to homepage"
-          >
+          <a href="/" className="mb-2 flex w-full justify-center md:justify-start" aria-label="Go to homepage">
             <Image
               src="/iparx.png"
               alt="IPARX MEDIA"
               width={840}
               height={280}
               priority
-              className="h-full w-full -translate-y-2 origin-center scale-[2.02] object-contain md:-translate-y-2 md:scale-[2.22]"
+              className="h-[90px] w-auto max-w-full object-contain sm:h-[110px] md:h-[128px]"
             />
-          </Link>
+          </a>
           <h2 className="text-3xl sm:text-5xl md:text-6xl font-extrabold text-white leading-tight">
             It&apos;s nice to<br />meet ya
           </h2>

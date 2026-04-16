@@ -167,7 +167,7 @@ export default function ContactSection() {
               href="/"
               whileHover={{ y: -3, scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              className="mt-8 flex w-full items-center justify-center"
+              className="mt-7 block w-full max-w-[290px] rounded-2xl border border-white/10 bg-white/[0.02] p-3"
               aria-label="Go to homepage"
             >
               <Image
@@ -175,7 +175,7 @@ export default function ContactSection() {
                 alt="IPARX MEDIA"
                 width={720}
                 height={240}
-                className="h-[100px] w-auto max-w-full object-contain sm:h-[120px] md:h-[140px]"
+                className="h-[72px] w-full object-contain object-left sm:h-[84px] md:h-[92px]"
               />
             </motion.a>
           </div>
