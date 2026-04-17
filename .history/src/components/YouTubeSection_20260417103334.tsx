@@ -80,7 +80,6 @@ export default function YouTubeSection() {
                 onMouseEnter={() => setActiveIdx(idx)}
               >
                 <div className="rounded-lg overflow-hidden mb-4 h-44 bg-zinc-800 flex items-center justify-center">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src={`https://img.youtube.com/vi/${video.id.videoId}/hqdefault.jpg`}
                     alt={video.snippet.title}

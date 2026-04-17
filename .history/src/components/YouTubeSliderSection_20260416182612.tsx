@@ -2,17 +2,17 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
+// You must add your API key in .env.local as NEXT_PUBLIC_YOUTUBE_API_KEY=your_key_here
+const CHANNEL_ID = "UCYgu3qmmhgovLZtoT1tx00g";
+const API_KEY = process.env.NEXT_PUBLIC_YOUTUBE_API_KEY || "AIzaSyACYZF1GIaEMsDZiU2i6xO1mtreyMto2ns";
+
+
 type VideoItem = {
   id: { videoId: string };
   snippet: {
     title: string;
     channelTitle: string;
   };
-};
-
-type YouTubeRouteResponse = {
-  items?: VideoItem[];
-  error?: string;
 };
 
 export default function YouTubeSliderSection() {
@@ -23,24 +23,22 @@ export default function YouTubeSliderSection() {
   useEffect(() => {
     async function fetchVideos() {
       try {
-        const res = await fetch("/api/youtube");
-        const data: YouTubeRouteResponse = await res.json();
-
+        const res = await fetch(
+          `https://www.googleapis.com/youtube/v3/search?key=${API_KEY}&channelId=${CHANNEL_ID}&part=snippet,id&order=date&maxResults=20`
+        );
         if (!res.ok) {
-          throw new Error(data.error || `YouTube feed error: ${res.status}`);
+          throw new Error(`YouTube API error: ${res.status} ${res.statusText}`);
         }
-
+        const data = await res.json();
         if (!data.items) {
-          throw new Error("No videos found.");
+          throw new Error("No videos found or API limit reached.");
         }
-
         const videoItems = (data.items || []).filter(
           (item: VideoItem) => item.id && item.id.videoId
         );
         setVideos(videoItems);
-        setError(null);
-      } catch (err: unknown) {
-        setError(err instanceof Error ? err.message : "Failed to load YouTube videos.");
+      } catch (err: any) {
+        setError(err.message || "Failed to load YouTube videos.");
       }
     }
     fetchVideos();
